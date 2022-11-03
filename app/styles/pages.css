@@ -1,0 +1,18 @@
+body {
+  box-sizing: border-box;
+}
+
+.nav-container {
+  width: 340px;
+}
+
+.card {
+  width: 379px;
+  height: 311px;
+  /* box-shadow: 0px -1px 0px rgba(129, 162, 178, 0.1),
+    0px 1px 1px rgba(0, 0, 0, 0.1), 0px 2px 6px rgba(36, 44, 57, 0.1); */
+}
+
+.side-nav {
+  background: #e5e5e5;
+}

@@ -1,0 +1,62 @@
+diff --git a/package.json b/package.json
+index 26c09e8..19a3266 100644
+--- a/package.json
++++ b/package.json
+@@ -1,9 +1,10 @@
+ {
+-  "name": "kaleidoscope-components",
++  "name": "kl-module",
+   "version": "0.1.0",
+   "description": "The components that make up the Qwilr app",
+   "private": true,
+-  "main": "src",
++  "main": "./js/index.js",
++  "types": "./js/index.d.ts",
+   "scripts": {
+     "test": "TS_NODE_PROJECT='./tsconfig.test.json' mocha \"./src/**/*.unit.spec.*\"",
+     "build:icons": "node src/global/icons/build.js",
+diff --git a/src/index.less b/src/index.less
+index a0cb1da..c9167ac 100644
+--- a/src/index.less
++++ b/src/index.less
+@@ -1,4 +1,4 @@
+-@import "~lesshat/lesshat";
++@import "lesshat/lesshat";
+ 
+ // Base styles and resets duplicated from the app
+ @import "styles/app/index";
+diff --git a/src/index.ts b/src/index.ts
+index 8826ce4..7bbf42b 100644
+--- a/src/index.ts
++++ b/src/index.ts
+@@ -84,6 +84,6 @@ export * from "./global/pieces/Heading";
+ export * from "./global/pieces/Text";
+ export * from "./global/pieces/Label";
+ export { StepCount } from "./global/pieces/StepCount/StepCount";
+-export { FolderDropdown } from "./global/pieces/FolderDropdown/FolderDropdown";
++// export { FolderDropdown } from "./global/pieces/FolderDropdown/FolderDropdown";
+ export * from "./global/pieces/Select";
+ export * from "./global/behaviors/Expandable";
+diff --git a/tsconfig.json b/tsconfig.json
+index eaf42fc..cac1211 100644
+--- a/tsconfig.json
++++ b/tsconfig.json
+@@ -19,7 +19,16 @@
+     },
+     "jsx": "react",
+     "strict": true,
+-    "watch": true
++    "watch": false,
++    "skipLibCheck": true
+   },
+-  "exclude": ["bower_components", "node_modules", "typings/browser", "typings/browser.d.ts"]
++  "include": ["src"],
++  "exclude": [
++    "bower_components",
++    "node_modules",
++    "typings/browser",
++    "typings/browser.d.ts",
++    "src/**/*.unit.spec.*",
++    "src/**/*.stories.*"
++  ]
+ }
